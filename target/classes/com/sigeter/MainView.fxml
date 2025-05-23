@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="864.0" prefWidth="1536.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sigeter.controller.MainViewController">
+    <stylesheets>
+        <URL value="@style/MainView.css" />
+    </stylesheets>
+   <children>
+      <BorderPane layoutX="8.0" layoutY="8.0" prefHeight="846.0" prefWidth="1518.0" style="-fx-background-color: transparent; -fx-border-color: transparent;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <left>
+            <SplitPane prefHeight="842.0" prefWidth="180.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+               <items>
+                  <VBox prefHeight="556.0" prefWidth="177.0" styleClass="sidebar">
+                     <children>
+                        <Label prefHeight="52.0" prefWidth="183.0" text="SiGeter">
+                           <font>
+                              <Font name="Tw Cen MT Condensed Extra Bold" size="29.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnGempaTerkini" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#onGempaTerkiniClicked" prefHeight="46.0" prefWidth="182.0" styleClass="sidebar-item" text="Gempa Local" textFill="#65676d">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/iconSidebar2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnGempaGlobal" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#onGempaGlobalClicked" prefHeight="46.0" prefWidth="182.0" styleClass="sidebar-item" text="Gempa Global" textFill="#65676d">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="16.0" />
+                           </font>
+                           <graphic>    
+                              <ImageView fitHeight="49.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="sidebar-button">
+                                 <image>
+                                    <Image url="@assets/iconSidebar1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnCatatan" layoutX="10.0" layoutY="108.0" mnemonicParsing="false" onAction="#onCatatanClicked" prefHeight="46.0" prefWidth="187.0" styleClass="sidebar-item" text="Catatan" textFill="#65676d">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="sidebar-button">
+                                 <image>
+                                    <Image url="@assets/iconSidebar1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+         </left>
+         <center>
+            <StackPane fx:id="mainPane" prefHeight="150.0" prefWidth="200.0" style="-fx-border-color: transparent;" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

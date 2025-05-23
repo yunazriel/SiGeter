@@ -1,0 +1,96 @@
+.mainFxmlClass {
+    -fx-background-color: #F7F7F4;
+}
+
+.container-contentCatatan {
+    -fx-background-color:white;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 4);
+}
+
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 8;
+    /*-fx-padding: 10;*/
+    -fx-table-cell-border-color: transparent;
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #4a90e2;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 8 10;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #eeeeee transparent;
+    /*-fx-padding: 5 10;*/
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #e6f0ff;
+}
+
+.table-row-cell:selected,
+.table-cell:selected,
+.table-row-cell:focused:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: inherit;
+}
+
+.table-cell {
+    /*-fx-padding: 8 10;*/
+    -fx-alignment: CENTER;
+    -fx-wrap-text: true;
+}
+
+.table-view .placeholder {
+    -fx-text-fill: #999999;
+    -fx-font-style: italic;
+}
+
+.btnCatatan-edit {
+    -fx-padding: 8 15;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
+    -fx-background-color: linear-gradient(to right, #ffc107, #e0a800);
+    -fx-transition: all 0.3s ease;
+}
+.btnCatatan-edit:hover {
+    -fx-background-color: linear-gradient(to right, #ffca2c, #ffc107);
+}
+
+.btnCatatan-delete {
+    -fx-padding: 8 15;
+    -fx-background-radius: 10;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
+    -fx-background-color: linear-gradient(to right, #ffc107, #e0a800);
+    -fx-transition: all 0.3s ease;
+    -fx-background-color: linear-gradient(to right, #dc3545, #c82333);
+}
+.btnCatatan-delete:hover {
+    -fx-background-color: linear-gradient(to right, #e55363, #dc3545);
+}

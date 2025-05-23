@@ -1,0 +1,168 @@
+.mainFxmlClass {
+    -fx-background-color: #F7F7F4;
+}
+
+.container-content {
+    /*-fx-background-color: tomato;*/
+    -fx-background-color: white;
+    -fx-background-radius: 20px; 
+}
+
+.mapsContent {
+    -fx-background-color:white;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 4);
+}
+
+.filterContent {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.3, 0, 4);
+}
+
+.filterContent-label {
+    -fx-text-fill: #333333;
+}
+
+.filterContent-datePicker {
+    -fx-background-color: white;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 5;
+}
+
+.filterContent-datePicker .text-field {
+    -fx-background-color: transparent;
+    -fx-font-size: 13px;
+}
+
+.filterContent-button {
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+    /*-fx-font-size: 14px;*/
+    -fx-padding: 8 16;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.filterContent-button:hover {
+    -fx-background-color: #357ABD;
+}
+
+.filterContent-button:pressed {
+    -fx-background-color: #2C5DA1;
+}
+
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #dddddd;
+    -fx-border-radius: 8;
+    /*-fx-padding: 10;*/
+    -fx-table-cell-border-color: transparent;
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #4a90e2;
+    -fx-background-radius: 8 8 0 0;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 8 10;
+}
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #eeeeee transparent;
+    -fx-padding: 5 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #e6f0ff;
+}
+
+.table-row-cell:selected,
+.table-cell:selected,
+.table-row-cell:focused:selected {
+    -fx-background-color: transparent;
+    -fx-text-fill: inherit;
+}
+
+.table-cell {
+    /*-fx-padding: 8 10;*/
+    -fx-alignment: CENTER;
+    -fx-wrap-text: true;
+}
+
+.table-view .placeholder {
+    -fx-text-fill: #999999;
+    -fx-font-style: italic;
+}
+
+/*.btn-flat {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2196F3;
+    -fx-font-weight: bold;
+    -fx-border-color: #2196F3;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+
+.btn-flat:hover {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+}*/
+
+.btnCatatan-add {
+    -fx-background-color: #3cd070;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 10;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: all 0.3s ease;
+}
+
+.btnCatatan-add:hover {
+    -fx-background-color: #37BD66;
+}
+
+.btnViewMaps {
+    -fx-background-color: #4a90e2;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 10;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: all 0.3s ease;
+}
+
+.btnViewMaps:hover {
+    -fx-background-color: #4483CC;
+}

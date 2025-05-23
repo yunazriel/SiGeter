@@ -1,0 +1,32 @@
+.mainFxmlClass {
+    -fx-background-color: #F7F7F4;
+}
+
+.sidebar {
+    -fx-background-color: FFFFFF;
+    -fx-background-radius: 20px;
+}
+
+.sidebar-item {
+    -fx-cursor: hand;
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: #65676d;
+    -fx-background-color: #ffffff;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.sidebar-item:hover {
+    -fx-background-color: #e6f0ff;
+    -fx-text-fill: #1e90ff;
+}
+
+.sidebar-item.selected {
+    -fx-background-color: #e6f0ff;
+    -fx-text-fill: #1e90ff;
+    -fx-border-width: 0px 5px 0px 0px;
+    -fx-border-color: transparent #1e90ff transparent transparent;
+}
+
+
+
+

@@ -1,0 +1,13 @@
+com\sigeter\controller\CatatanController$1.class
+com\sigeter\service\GempaUsgs.class
+com\sigeter\model\DetailGempa.class
+com\sigeter\controller\GempaGlobalController.class
+com\sigeter\model\DataShare.class
+com\sigeter\service\GempaBmkg.class
+com\sigeter\controller\MainViewController.class
+com\sigeter\model\Gempa.class
+module-info.class
+com\sigeter\controller\GempaLocalController.class
+com\sigeter\controller\CatatanController.class
+com\sigeter\App.class
+com\sigeter\controller\GempaGlobalController$1.class
