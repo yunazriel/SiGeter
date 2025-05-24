@@ -3,6 +3,9 @@ package com.sigeter.controller;
 import com.sigeter.model.DataShare;
 import com.sigeter.model.DetailGempa;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -14,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -21,6 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -100,19 +105,60 @@ public class CatatanController implements Initializable {
     private void showEditPopup(DetailGempa gempa) {
         Stage dialog = new Stage();
         dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.setTitle("Ubah Data Gempa");
+        dialog.setTitle("Edit Catatan");
 
-        TextField tfTgl = new TextField(gempa.getTanggal());
+        // input
+        DatePicker tfTgl = new DatePicker();
+        try {
+            Locale indonesiaLocale = new Locale("id", "ID");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy", indonesiaLocale);
+
+            if (gempa.getTanggal() != null && !gempa.getTanggal().isEmpty()) {
+                tfTgl.setValue(LocalDate.parse(gempa.getTanggal(), formatter));
+            }
+        } catch (Exception e) {
+            System.err.println("Gagal mem-parse tanggal '" + gempa.getTanggal() + "': " + e.getMessage());
+        }
+        
         TextField tfJam = new TextField(gempa.getJam());
         TextField tfMag = new TextField(gempa.getMagnitude());
         TextField tfDlm = new TextField(gempa.getKedalaman());
         TextField tfWil = new TextField(gempa.getWilayah());
         TextField tfPot = new TextField(gempa.getPotensi());
         TextField tfCor = new TextField(gempa.getCordinate());
+        
+        GridPane formGrid = new GridPane();
+        formGrid.setHgap(10); // horizontal
+        formGrid.setVgap(10); // vertikal
+        formGrid.setPadding(new Insets(20));
 
-        Button btnSimpan = new Button("Simpan");
-        btnSimpan.setOnAction(e -> {
-            gempa.setTanggal(tfTgl.getText());
+        // label
+        formGrid.add(new Label("Tanggal:"), 0, 0);
+        formGrid.add(tfTgl, 1, 0);
+        formGrid.add(new Label("Jam:"), 0, 1);
+        formGrid.add(tfJam, 1, 1);
+        formGrid.add(new Label("Magnitude:"), 0, 2);
+        formGrid.add(tfMag, 1, 2);
+        formGrid.add(new Label("Kedalaman:"), 0, 3);
+        formGrid.add(tfDlm, 1, 3);
+        formGrid.add(new Label("Wilayah:"), 0, 4);
+        formGrid.add(tfWil, 1, 4);
+        formGrid.add(new Label("Potensi:"), 0, 5);
+        formGrid.add(tfPot, 1, 5);
+        formGrid.add(new Label("Koordinat:"), 0, 6);
+        formGrid.add(tfCor, 1, 6);
+
+        Button btnSave = new Button("Simpan");
+        btnSave.getStyleClass().add("button-primary");
+        btnSave.setOnAction(e -> {
+            LocalDate selectedDate = tfTgl.getValue();
+            if (selectedDate != null) {
+                Locale indonesiaLocale = new Locale("id", "ID");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy", indonesiaLocale);
+                gempa.setTanggal(selectedDate.format(formatter));
+            } else {
+                gempa.setTanggal(null);
+            }
             gempa.setJam(tfJam.getText());
             gempa.setMagnitude(tfMag.getText());
             gempa.setKedalaman(tfDlm.getText());
@@ -120,24 +166,29 @@ public class CatatanController implements Initializable {
             gempa.setPotensi(tfPot.getText());
             gempa.setCordinate(tfCor.getText());
 
-            tableCatatan.refresh(); 
+            // memastikan tableCatatan tidak null
+            if (tableCatatan != null) {
+                tableCatatan.refresh();
+            }
             dialog.close();
         });
 
-        VBox vbox = new VBox(10,
-            new Label("Tanggal"), tfTgl,
-            new Label("Jam"), tfJam,
-            new Label("Magnitude"), tfMag,
-            new Label("Kedalaman"), tfDlm,
-            new Label("Wilayah"), tfWil,
-            new Label("Potensi"), tfPot,
-            new Label("Koordinat"), tfCor,
-            btnSimpan
-        );
-        vbox.setPadding(new Insets(10));
+        Button btnBatal = new Button("Batal");
+        btnBatal.getStyleClass().add("button-secondary");
+        btnBatal.setOnAction(e -> dialog.close());
 
-        Scene scene = new Scene(vbox, 300, 600);
+        HBox buttonBar = new HBox(8, btnSave, btnBatal);
+        buttonBar.setAlignment(Pos.CENTER_RIGHT);
+        buttonBar.setPadding(new Insets(0, 20, 20, 20));
+
+        VBox mainLayout = new VBox(formGrid, buttonBar);
+        mainLayout.setAlignment(Pos.TOP_CENTER);
+        mainLayout.setSpacing(20);
+
+        Scene scene = new Scene(mainLayout);
+        scene.getStylesheets().add(getClass().getResource("/com/sigeter/style/modal-edit.css").toExternalForm());
         dialog.setScene(scene);
+        dialog.sizeToScene();
         dialog.showAndWait();
     }
 }

@@ -32,7 +32,7 @@ public class MainViewController implements Initializable {
             }
         }
         
-//        onGempaGlobalClicked();
+        onGempaTerkiniClicked();
         
 //        Platform.runLater(() -> {
 //            double widht = mainPane.getWidth();

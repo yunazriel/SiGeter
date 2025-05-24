@@ -14,7 +14,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebView;
@@ -26,7 +25,6 @@ public class GempaLocalController implements Initializable {
     private static final String url = "https://data.bmkg.go.id/DataMKG/TEWS/";
     
     @FXML private Label date,mag,dlm,wil,pot,cor,map;
-    @FXML private ImageView bmkgImg;
     @FXML private WebView mapsBmkg;
     
     public GempaLocalController() {
@@ -127,7 +125,7 @@ public class GempaLocalController implements Initializable {
             alert.setTitle("Menambahkan Data");
             alert.setHeaderText(null);
             alert.setContentText("Data Berhasil Ditambahkan");
-            // Membuat Timeline untuk menutup alert otomatis setelah 2 detik
+
             Duration delay = Duration.seconds(2);
             Timeline timeline = new Timeline(
                 new KeyFrame(delay, event -> {
