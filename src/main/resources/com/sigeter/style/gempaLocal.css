@@ -55,18 +55,33 @@
 }
 
 .btnCatatan-add {
-    -fx-background-color: #3cd070;
+    -fx-cursor: hand;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-padding: 8 10;
+    -fx-padding: 5 10;
+    -fx-alignment: CENTER;
     -fx-background-radius: 10;
-    -fx-cursor: hand;
+    -fx-background-color: #3cd070;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
-    -fx-border-color: transparent;
-    -fx-border-width: 0;
     -fx-transition: all 0.3s ease;
 }
 
 .btnCatatan-add:hover {
     -fx-background-color: #37BD66;
+}
+
+.btnViewMaps {
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 5 10;
+    -fx-alignment: CENTER;
+    -fx-background-radius: 10;
+    -fx-background-color: #4a90e2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.3, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.btnViewMaps:hover {
+    -fx-background-color: #4483CC;
 }

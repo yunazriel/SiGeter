@@ -37,7 +37,7 @@
 .table-row-cell {
     -fx-background-color: white;
     -fx-border-color: transparent transparent #eeeeee transparent;
-    /*-fx-padding: 5 10;*/
+    -fx-padding: 5 0;
 }
 
 .table-row-cell:odd {
@@ -67,30 +67,29 @@
 }
 
 .btnCatatan-edit {
-    -fx-padding: 8 15;
-    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 8 10;
     -fx-font-weight: bold;
     -fx-text-fill: white;
-    -fx-cursor: hand;
+    -fx-background-radius: 10;
+    -fx-background-color: #FFC107;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
-    -fx-background-color: linear-gradient(to right, #ffc107, #e0a800);
     -fx-transition: all 0.3s ease;
 }
 .btnCatatan-edit:hover {
-    -fx-background-color: linear-gradient(to right, #ffca2c, #ffc107);
+    -fx-background-color: #FFA000;
 }
 
 .btnCatatan-delete {
-    -fx-padding: 8 15;
-    -fx-background-radius: 10;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
     -fx-cursor: hand;
+    -fx-padding: 8 10;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-background-color: #F44336;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
-    -fx-background-color: linear-gradient(to right, #ffc107, #e0a800);
     -fx-transition: all 0.3s ease;
-    -fx-background-color: linear-gradient(to right, #dc3545, #c82333);
 }
 .btnCatatan-delete:hover {
-    -fx-background-color: linear-gradient(to right, #e55363, #dc3545);
+    -fx-background-color: #da3329;
 }

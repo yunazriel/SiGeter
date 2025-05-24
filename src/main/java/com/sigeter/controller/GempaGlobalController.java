@@ -15,13 +15,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.util.Duration;
 
@@ -174,7 +172,7 @@ public class GempaGlobalController implements Initializable {
                             alert.setTitle("Menambahkan Data");
                             alert.setHeaderText(null);
                             alert.setContentText("Data Berhasil Ditambahkan");
-                            // Membuat Timeline untuk menutup alert otomatis setelah 2 detik
+                            
                             Duration delay = Duration.seconds(2);
                             Timeline timeline = new Timeline(
                                 new KeyFrame(delay, event -> {
@@ -204,13 +202,13 @@ public class GempaGlobalController implements Initializable {
             
 //            final boolean[] isSingleView = {true};
 //            final DetailGempa[] lastSelected = {null};
-
+//
 //            tableGempa.setOnMouseClicked(event -> {
 //                if (event.getClickCount() == 1) {
 //                    DetailGempa selected = tableGempa.getSelectionModel().getSelectedItem();
 //                    if (selected != null) {
 //                        if (selected != lastSelected[0]) {
-//                            isSingleView[0] = true; // reset toggle jika pilih baris baru
+//                            isSingleView[0] = true;
 //                        }
 //
 //                        if (isSingleView[0]) {
@@ -220,8 +218,7 @@ public class GempaGlobalController implements Initializable {
 //                        }
 //
 //                        isSingleView[0] = !isSingleView[0];
-//                        lastSelected[0] = selected;
-//                    }
+//                        lastSelected[0] = selected;                    }
 //                }
 //            });
 
