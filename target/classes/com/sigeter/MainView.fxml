@@ -25,9 +25,21 @@
                      <children>
                         <Label prefHeight="52.0" prefWidth="183.0" text="SiGeter">
                            <font>
-                              <Font name="Tw Cen MT Condensed Extra Bold" size="29.0" />
+                              <Font name="Segoe UI Bold" size="30.0" />
                            </font>
                         </Label>
+                        <Button fx:id="btnHome" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#onHomeClicked" prefHeight="46.0" prefWidth="182.0" styleClass="sidebar-item" text="Home" textFill="#65676d">
+                           <font>
+                              <Font name="Comic Sans MS Bold" size="16.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/iconSidebar2.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                         <Button fx:id="btnGempaTerkini" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#onGempaTerkiniClicked" prefHeight="46.0" prefWidth="182.0" styleClass="sidebar-item" text="Gempa Local" textFill="#65676d">
                            <font>
                               <Font name="Comic Sans MS Bold" size="16.0" />

@@ -80,7 +80,7 @@
                     </TextFlow>
                <HBox prefHeight="52.0" prefWidth="875.0" spacing="10.0">
                   <children>
-                     <Button fx:id="addCatatanLocal" contentDisplay="CENTER" mnemonicParsing="false" onAction="#btnAddCatatan" prefHeight="40.0" prefWidth="102.0" styleClass="btnCatatan-add" text="Add Catatan" />
+                     <Button fx:id="addCatatanLocal" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="102.0" styleClass="btnCatatan-add" text="Add Catatan" />
                      <Button fx:id="viewDetailImage" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnViewDetailMap" prefHeight="40.0" prefWidth="121.0" styleClass="btnViewMaps" text="View Detail Maps" />
                   </children>
                   <padding>

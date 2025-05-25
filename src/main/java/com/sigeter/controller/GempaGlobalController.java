@@ -67,36 +67,30 @@ public class GempaGlobalController implements Initializable {
 
         if (startDate != null && endDate != null) {
             if (endDate.isAfter(today)) {
-                // Tampilkan peringatan
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Peringatan");
                 alert.setHeaderText(null);
                 alert.setContentText("Tanggal berakhir tidak boleh melebihi hari ini. Tanggal berakhir akan diatur ke hari ini.");
                 alert.showAndWait();
 
-                // Set endDate kembali ke hari ini
                 eTime.setValue(today);
                 endDate = today;
             }else if(startDate.isAfter(today)){
-                // Tampilkan peringatan
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Peringatan");
                 alert.setHeaderText(null);
                 alert.setContentText("Tanggal mulai tidak boleh melebihi hari ini. Tanggal mulai akan diatur ke hari ini.");
                 alert.showAndWait();
                 
-                // Set endDate ke startDate
                 sTime.setValue(today);
                 startDate = today;
             }else if (endDate.isBefore(startDate)) {
-                // Tampilkan peringatan
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Peringatan");
                 alert.setHeaderText(null);
                 alert.setContentText("Tanggal berakhir tidak boleh kurang dari tanggal mulai. Tanggal berakhir akan diatur sama dengan tanggal mulai.");
                 alert.showAndWait();
                 
-                // Set endDate ke startDate
                 eTime.setValue(startDate);
                 endDate = startDate;
             }
@@ -164,10 +158,9 @@ public class GempaGlobalController implements Initializable {
                     btnAddCatatan.getStyleClass().add("btnCatatan-add");
                     btnAddCatatan.setOnAction(e -> {
                         DetailGempa gempa = getTableView().getItems().get(getIndex());
-                        System.out.println("Tambah catatan untuk: " + gempa.getCordinate());
-                        
                         if (!DataShare.catatan.contains(gempa)) {
                             DataShare.catatan.add(gempa);
+                            
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Menambahkan Data");
                             alert.setHeaderText(null);
@@ -179,10 +172,15 @@ public class GempaGlobalController implements Initializable {
                                     alert.hide();
                                 })
                             );
+                            
                             timeline.play();
                             alert.show();
                         } else {
-                            System.out.println("Data sudah ada di catatan.");
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Peringatan!!");
+                            alert.setHeaderText(null);
+                            alert.setContentText("Data Sudah Ditambahkan");
+                            alert.show();
                         }
                     });
                     
@@ -250,14 +248,14 @@ public class GempaGlobalController implements Initializable {
                                "<br>Waktu: " + gempa.getJam() +
                                "<br>Potensi: " + gempa.getPotensi();
 
-                // Tambahkan marker ke daftar dan list koordinat
+                // marker
                 markers.append("L.marker([").append(lat).append(", ").append(lon)
                        .append("]).addTo(map).bindPopup('").append(popup.replace("'", "\\'")).append("');");
                 latlngList.append("[").append(lat).append(", ").append(lon).append("],");
             }
 
             if (!gempaList.isEmpty()) {
-                latlngList.setLength(latlngList.length() - 1); // hapus koma terakhir
+                latlngList.setLength(latlngList.length() - 1);
             }
             latlngList.append("];");
 

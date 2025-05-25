@@ -9,5 +9,6 @@ com\sigeter\model\Gempa.class
 module-info.class
 com\sigeter\controller\GempaLocalController.class
 com\sigeter\controller\CatatanController.class
+com\sigeter\controller\HomeController.class
 com\sigeter\App.class
 com\sigeter\controller\GempaGlobalController$1.class

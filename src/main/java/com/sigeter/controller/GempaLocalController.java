@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -26,6 +27,7 @@ public class GempaLocalController implements Initializable {
     
     @FXML private Label date,mag,dlm,wil,pot,cor,map;
     @FXML private WebView mapsBmkg;
+    @FXML private Button addCatatanLocal;
     
     public GempaLocalController() {
         this.service = new GempaBmkg();
@@ -106,6 +108,10 @@ public class GempaLocalController implements Initializable {
                 "</body>" +
                 "</html>";
                 mapsBmkg.getEngine().loadContent(html);
+                
+                addCatatanLocal.setOnAction(e -> {
+                    btnAddCatatan(gempa);
+                });
             } catch (NumberFormatException e) {
                 System.err.println("Gagal mengkonversi koordinat ke double. " + e.getMessage());
             } catch (Exception e) {
@@ -116,11 +122,12 @@ public class GempaLocalController implements Initializable {
         }
     }
     
-    public void btnAddCatatan() {
-        DetailGempa gempa = getData();
+    public void btnAddCatatan(DetailGempa gempa) {
+//        DetailGempa gempa = getData();
                 
         if (!DataShare.catatan.contains(gempa)) {
             DataShare.catatan.add(gempa);
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Menambahkan Data");
             alert.setHeaderText(null);
@@ -135,7 +142,11 @@ public class GempaLocalController implements Initializable {
             timeline.play();
             alert.show();
         } else {
-            System.out.println("Data sudah ada di catatan.");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Peringatan!!");
+            alert.setHeaderText(null);
+            alert.setContentText("Data Sudah Ditambahkan");
+            alert.show();
         }
     }
     

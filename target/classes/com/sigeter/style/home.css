@@ -1,0 +1,8 @@
+.mainFxmlClass {
+    -fx-background-color: #F7F7F4;
+}
+
+.container-Home {
+    -fx-background-color: white;
+    -fx-background-radius: 20;
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="771.2" prefWidth="1336.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sigeter.controller.HomeController">
+    <stylesheets>
+        <URL value="@style/home.css" />
+    </stylesheets>
+    <children>
+        <Pane prefHeight="565.0" prefWidth="1326.0" styleClass="container-Home" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label layoutX="550.0" layoutY="37.0" prefHeight="65.0" prefWidth="234.0" text="SiGeter">
+                    <font>
+                        <Font name="Monospaced Bold" size="50.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="399.0" layoutY="79.0" prefHeight="76.0" prefWidth="559.0" style="-fx-underline: true;" text="Sistem Informasi Gempa Terkini">
+                    <font>
+                        <Font name="Monospaced Bold" size="30.0" />
+                    </font>
+                </Label>
+            <VBox layoutX="71.0" layoutY="147.0" prefHeight="521.0" prefWidth="1172.0">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="140.0" prefWidth="1184.0" text="SIGETER adalah aplikasi desktop berbasis Java yang dirancang untuk memberikan informasi terkini dan akurat mengenai kejadian gempa bumi, baik di tingkat lokal maupun global. Aplikasi ini dikembangkan menggunakan bahasa pemrograman Java dan dibangun dengan bantuan JavaFX sebagai framework utama untuk membentuk antarmuka pengguna (GUI) yang interaktif, modern, dan responsif." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="140.0" prefWidth="1184.0" text="SIGETER terintegrasi dengan dua sumber data open source terpercaya, yaitu BMKG (Badan Meteorologi, Klimatologi, dan Geofisika) untuk menyajikan data gempa lokal yang terjadi di wilayah Indonesia, serta USGS (United States Geological Survey) untuk menyediakan informasi gempa global dari seluruh dunia. Data yang diambil dari kedua API ini kemudian diolah dan ditampilkan secara dinamis melalui antarmuka aplikasi." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label contentDisplay="CENTER" layoutX="10.0" layoutY="150.0" prefHeight="199.0" prefWidth="1172.0" text="Aplikasi ini juga menyajikan data lengkap seperti tanggal, jam, magnitudo, kedalaman, wilayah, potensi, dan koordinat gempa. Informasi ini divisualisasikan dalam bentuk peta interaktif menggunakan layanan peta dari unpkg.com, yang memungkinkan pengguna melihat lokasi gempa secara presisi. Selain itu, aplikasi ini dilengkapi dengan fitur catatan yang memungkinkan pengguna untuk menambahkan, mengedit, dan menghapus catatan pribadi terkait peristiwa gempa, baik lokal maupun global. Semua fitur ini dirancang untuk mendukung kebutuhan masyarakat umum, peneliti, hingga pihak tanggap bencana secara praktis dan efisien." textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Monospaced Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

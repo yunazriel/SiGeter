@@ -2,12 +2,16 @@ package com.sigeter.controller;
 
 import com.sigeter.model.DataShare;
 import com.sigeter.model.DetailGempa;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,8 +19,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -28,6 +34,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -42,10 +49,15 @@ public class CatatanController implements Initializable {
     @FXML private TableColumn<DetailGempa, String> colPot;    
     @FXML private TableColumn<DetailGempa, String> colCor;
     @FXML private TableColumn<DetailGempa, Void> colAction;
+    @FXML private ChoiceBox<String> choiceExportFormat;
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ObservableList<String> exportOptions = FXCollections.observableArrayList("CSV", "Excel");
+        choiceExportFormat.setItems(exportOptions);
+        choiceExportFormat.getSelectionModel().selectFirst(); // Pilih CSV sebagai default
+        
         tableCatatan.setEditable(true);
         tableCatatan.setSelectionModel(null);
         
@@ -190,5 +202,124 @@ public class CatatanController implements Initializable {
         dialog.setScene(scene);
         dialog.sizeToScene();
         dialog.showAndWait();
+    }
+    
+    private void showAlert(AlertType type, String title, String header, String content) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+    
+    @FXML
+    private void handleExport() {
+        String selectedFormat = choiceExportFormat.getSelectionModel().getSelectedItem();
+
+        if (selectedFormat == null) {
+            showAlert(AlertType.WARNING, "Peringatan", "Pilih Format Ekspor", "Harap pilih format (CSV atau Excel) sebelum mengekspor.");
+            return;
+        }
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Simpan Data Catatan");
+
+        // Set filter berdasarkan format yang dipilih
+        if (selectedFormat.equals("CSV")) {
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv"));
+            fileChooser.setInitialFileName("catatan_data_gempa.csv");
+        } else if (selectedFormat.equals("Excel")) {
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel files (*.xlsx)", "*.xlsx"));
+            fileChooser.setInitialFileName("catatan_data_gempa.xlsx");
+        }
+
+        File file = fileChooser.showSaveDialog(null); // Gunakan null jika tidak ada stage yang terhubung
+        if (file != null) {
+            try {
+                if (selectedFormat.equals("CSV")) {
+                    exportToCsv(file);
+                } else if (selectedFormat.equals("Excel")) {
+                    exportToExcel(file);
+                }
+                showAlert(AlertType.INFORMATION, "Sukses", "Ekspor Berhasil", "Data berhasil diekspor ke:\n" + file.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert(AlertType.ERROR, "Error", "Gagal Ekspor", "Terjadi kesalahan saat mengekspor data: " + e.getMessage());
+            }
+        }
+    }
+    
+    private void exportToCsv(File file) throws IOException {
+        try (FileWriter writer = new FileWriter(file)) {
+            // Tulis header kolom
+            writer.append("Tanggal,Jam,Magnitude,Kedalaman,Wilayah,Potensi,Koordinat\n");
+
+            // Tulis data baris
+            for (DetailGempa data : tableCatatan.getItems()) {
+                writer.append(
+                    data.getTanggal() + "," +
+                    data.getJam()+ "," +
+                    data.getMagnitude() + "," +
+                    data.getKedalaman() + "," +
+                    "\"" + data.getWilayah().replace("\"", "\"\"") + "\"," +
+                    "\"" + data.getPotensi().replace("\"", "\"\"") + "\"," +
+                    "\"" + data.getCordinate().replace("\"", "\"\"") + "\"" +
+                    "\n"
+                );
+            }
+        }
+    }
+
+    private void exportToExcel(File file) throws IOException {
+        // Implementasi ekspor ke Excel membutuhkan library Apache POI
+        // Pastikan Anda sudah menambahkan Apache POI ke project Anda (misalnya melalui Maven/Gradle)
+        // Jika belum, uncomment bagian import di atas dan tambahkan dependency:
+        /*
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        */
+
+        // Contoh implementasi dasar untuk Excel (membutuhkan Apache POI)
+        /*
+        try (Workbook workbook = new XSSFWorkbook()) {
+            Sheet sheet = workbook.createSheet("Catatan Data");
+
+            // Buat header row
+            Row headerRow = sheet.createRow(0);
+            headerRow.createCell(0).setCellValue("Tanggal");
+            headerRow.createCell(1).setCellValue("Jam");
+            headerRow.createCell(2).setCellValue("Magnitude");
+            headerRow.createCell(3).setCellValue("Kedalaman");
+            headerRow.createCell(4).setCellValue("Wilayah");
+            headerRow.createCell(5).setCellValue("Potensi");
+            headerRow.createCell(6).setCellValue("Koordinat");
+
+            // Isi data
+            int rowNum = 1;
+            for (CatatanData data : tableCatatan.getItems()) {
+                Row row = sheet.createRow(rowNum++);
+                row.createCell(0).setCellValue(data.getTgl());
+                row.createCell(1).setCellValue(data.getJam());
+                row.createCell(2).setCellValue(data.getMag());
+                row.createCell(3).setCellValue(data.getDlm());
+                row.createCell(4).setCellValue(data.getWil());
+                row.createCell(5).setCellValue(data.getPot());
+                row.createCell(6).setCellValue(data.getCor());
+            }
+
+            try (FileOutputStream outputStream = new FileOutputStream(file)) {
+                workbook.write(outputStream);
+            }
+        }
+        */
+        showAlert(AlertType.INFORMATION, "Informasi", "Fitur Belum Lengkap", "Ekspor ke Excel memerlukan library Apache POI dan implementasi tambahan.");
     }
 }
