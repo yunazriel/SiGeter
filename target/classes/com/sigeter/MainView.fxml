@@ -23,7 +23,7 @@
                <items>
                   <VBox prefHeight="556.0" prefWidth="177.0" styleClass="sidebar">
                      <children>
-                        <Label prefHeight="52.0" prefWidth="183.0" text="SiGeter">
+                        <Label prefHeight="52.0" prefWidth="183.0" styleClass="sidebar-title" text="SiGeter">
                            <font>
                               <Font name="Segoe UI Bold" size="30.0" />
                            </font>

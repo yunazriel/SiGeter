@@ -27,6 +27,6 @@
     -fx-border-color: transparent #1e90ff transparent transparent;
 }
 
-
-
-
+.sidebar-title {
+    -fx-padding: 0 0 0 10px;
+}

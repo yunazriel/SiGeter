@@ -161,7 +161,7 @@ public class CatatanController implements Initializable {
         formGrid.add(tfCor, 1, 6);
 
         Button btnSave = new Button("Simpan");
-        btnSave.getStyleClass().add("button-primary");
+        btnSave.getStyleClass().add("btnModalCatatan-primary");
         btnSave.setOnAction(e -> {
             LocalDate selectedDate = tfTgl.getValue();
             if (selectedDate != null) {
@@ -186,7 +186,7 @@ public class CatatanController implements Initializable {
         });
 
         Button btnBatal = new Button("Batal");
-        btnBatal.getStyleClass().add("button-secondary");
+        btnBatal.getStyleClass().add("btnModalCatatan-secondary");
         btnBatal.setOnAction(e -> dialog.close());
 
         HBox buttonBar = new HBox(8, btnSave, btnBatal);

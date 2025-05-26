@@ -24,8 +24,8 @@
     -fx-effect: dropshadow(gaussian, rgba(0,123,255,0.3), 8, 0, 0, 3);
 }
 
-.button {
-    -fx-background-color: #6c757d;
+.btnModalCatatan-primary {
+    -fx-background-color: #007bff;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
@@ -35,32 +35,36 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
 }
 
-.button:hover {
-    -fx-opacity: 0.9;
+.btnModalCatatan-primary:hover {
+    -fx-background-color: #0056b3;
+     -fx-opacity: 0.9;
     -fx-scale-x: 1.02;
     -fx-scale-y: 1.02;
 }
 
-.button:pressed {
+.btnModalCatatan-secondary {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.btnModalCatatan-secondary:hover {
+    -fx-background-color: #c82333;
+     fx-opacity: 0.9;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+btnModalCatatan-primary:pressed,
+btnModalCatatan-secondary:pressed {
     -fx-opacity: 0.8;
     -fx-scale-x: 0.98;
     -fx-scale-y: 0.98;
-}
-
-.button-primary {
-    -fx-background-color: #007bff;
-}
-
-.button-primary:hover {
-    -fx-background-color: #0056b3;
-}
-
-.button-secondary {
-    -fx-background-color: #dc3545;
-}
-
-.button-secondary:hover {
-    -fx-background-color: #c82333;
 }
 
 .grid-pane {
