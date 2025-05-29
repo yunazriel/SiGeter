@@ -1,5 +1,6 @@
 package com.sigeter;
 
+import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
 import javafx.stage.Screen;
 
 public class App extends Application {
@@ -23,6 +25,19 @@ public class App extends Application {
 //        
 //        System.out.println("Lebar layar: " + screenWidth);
 //        System.out.println("Tinggi layar: " + screenHeight);
+
+        try {
+            URL iconURL = getClass().getResource("/com/sigeter/assets/logoSigeter.png");
+            if (iconURL != null) {
+                Image icon = new Image(iconURL.toExternalForm());
+                stage.getIcons().add(icon);
+            } else {
+                System.err.println("Icon Not Found");
+            }
+        } catch (Exception e) {
+            System.err.println("Gagal memuat icon: " + e.getMessage());
+            e.printStackTrace();
+        }
         
         stage.setScene(scene);
         stage.setTitle("SiGeter - Sistem Informasi Gempa Terkini");

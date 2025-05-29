@@ -38,6 +38,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.FileOutputStream;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook; 
+
 public class CatatanController implements Initializable {
     
     @FXML private TableView<DetailGempa> tableCatatan;
@@ -54,9 +62,9 @@ public class CatatanController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> exportOptions = FXCollections.observableArrayList("CSV", "Excel");
+        ObservableList<String> exportOptions = FXCollections.observableArrayList("CSV", "xlsx");
         choiceExportFormat.setItems(exportOptions);
-        choiceExportFormat.getSelectionModel().selectFirst(); // Pilih CSV sebagai default
+        choiceExportFormat.getSelectionModel().selectFirst();
         
         tableCatatan.setEditable(true);
         tableCatatan.setSelectionModel(null);
@@ -93,7 +101,6 @@ public class CatatanController implements Initializable {
                     alert.setContentText("Yakin Ingin Menghapus Data?");
                     
                     Optional<ButtonType> result = alert.showAndWait();
-                    // Periksa apakah tombol OK ditekan
                     if (result.isPresent() && result.get() == ButtonType.OK) {
                         DataShare.catatan.remove(selected);
                     } else {
@@ -224,7 +231,6 @@ public class CatatanController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Simpan Data Catatan");
 
-        // Set filter berdasarkan format yang dipilih
         if (selectedFormat.equals("CSV")) {
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv"));
             fileChooser.setInitialFileName("catatan_data_gempa.csv");
@@ -233,12 +239,12 @@ public class CatatanController implements Initializable {
             fileChooser.setInitialFileName("catatan_data_gempa.xlsx");
         }
 
-        File file = fileChooser.showSaveDialog(null); // Gunakan null jika tidak ada stage yang terhubung
+        File file = fileChooser.showSaveDialog(null);
         if (file != null) {
             try {
                 if (selectedFormat.equals("CSV")) {
                     exportToCsv(file);
-                } else if (selectedFormat.equals("Excel")) {
+                } else if (selectedFormat.equals("xlsx")) {
                     exportToExcel(file);
                 }
                 showAlert(AlertType.INFORMATION, "Sukses", "Ekspor Berhasil", "Data berhasil diekspor ke:\n" + file.getAbsolutePath());
@@ -251,10 +257,8 @@ public class CatatanController implements Initializable {
     
     private void exportToCsv(File file) throws IOException {
         try (FileWriter writer = new FileWriter(file)) {
-            // Tulis header kolom
             writer.append("Tanggal,Jam,Magnitude,Kedalaman,Wilayah,Potensi,Koordinat\n");
 
-            // Tulis data baris
             for (DetailGempa data : tableCatatan.getItems()) {
                 writer.append(
                     data.getTanggal() + "," +
@@ -271,28 +275,9 @@ public class CatatanController implements Initializable {
     }
 
     private void exportToExcel(File file) throws IOException {
-        // Implementasi ekspor ke Excel membutuhkan library Apache POI
-        // Pastikan Anda sudah menambahkan Apache POI ke project Anda (misalnya melalui Maven/Gradle)
-        // Jika belum, uncomment bagian import di atas dan tambahkan dependency:
-        /*
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>5.2.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>5.2.3</version>
-        </dependency>
-        */
-
-        // Contoh implementasi dasar untuk Excel (membutuhkan Apache POI)
-        /*
         try (Workbook workbook = new XSSFWorkbook()) {
             Sheet sheet = workbook.createSheet("Catatan Data");
 
-            // Buat header row
             Row headerRow = sheet.createRow(0);
             headerRow.createCell(0).setCellValue("Tanggal");
             headerRow.createCell(1).setCellValue("Jam");
@@ -302,24 +287,21 @@ public class CatatanController implements Initializable {
             headerRow.createCell(5).setCellValue("Potensi");
             headerRow.createCell(6).setCellValue("Koordinat");
 
-            // Isi data
             int rowNum = 1;
-            for (CatatanData data : tableCatatan.getItems()) {
+            for (DetailGempa data : tableCatatan.getItems()) {
                 Row row = sheet.createRow(rowNum++);
-                row.createCell(0).setCellValue(data.getTgl());
+                row.createCell(0).setCellValue(data.getTanggal());
                 row.createCell(1).setCellValue(data.getJam());
-                row.createCell(2).setCellValue(data.getMag());
-                row.createCell(3).setCellValue(data.getDlm());
-                row.createCell(4).setCellValue(data.getWil());
-                row.createCell(5).setCellValue(data.getPot());
-                row.createCell(6).setCellValue(data.getCor());
+                row.createCell(2).setCellValue(data.getMagnitude());
+                row.createCell(3).setCellValue(data.getKedalaman());
+                row.createCell(4).setCellValue(data.getWilayah());
+                row.createCell(5).setCellValue(data.getPotensi());
+                row.createCell(6).setCellValue(data.getCordinate());
             }
 
             try (FileOutputStream outputStream = new FileOutputStream(file)) {
                 workbook.write(outputStream);
             }
         }
-        */
-        showAlert(AlertType.INFORMATION, "Informasi", "Fitur Belum Lengkap", "Ekspor ke Excel memerlukan library Apache POI dan implementasi tambahan.");
     }
 }

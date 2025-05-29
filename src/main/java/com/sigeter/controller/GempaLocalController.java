@@ -122,9 +122,7 @@ public class GempaLocalController implements Initializable {
         }
     }
     
-    public void btnAddCatatan(DetailGempa gempa) {
-//        DetailGempa gempa = getData();
-                
+    public void btnAddCatatan(DetailGempa gempa) {                
         if (!DataShare.catatan.contains(gempa)) {
             DataShare.catatan.add(gempa);
             

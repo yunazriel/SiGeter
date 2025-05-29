@@ -5,6 +5,8 @@ module com.sigeter {
     requires org.json;
     requires javafx.web;
     requires javafx.graphics;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
     opens com.sigeter to javafx.fxml;
     opens com.sigeter.controller to javafx.fxml;

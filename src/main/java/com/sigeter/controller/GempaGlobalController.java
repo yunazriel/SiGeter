@@ -51,7 +51,7 @@ public class GempaGlobalController implements Initializable {
     public List<DetailGempa> getData(String sTime, String eTime) {
         try {
             List<DetailGempa> daftarGempa = service.fetchDataGempa(apiUrlByDate(sTime, eTime));
-            System.out.println("[Data Gempa]: " + daftarGempa.size());
+//            System.out.println("[Data Gempa Global]: " + daftarGempa.size());
             return daftarGempa;
         } catch (Exception e) {
             e.printStackTrace();

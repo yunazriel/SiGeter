@@ -16,15 +16,15 @@
 }
 
 .sidebar-item:hover {
-    -fx-background-color: #e6f0ff;
-    -fx-text-fill: #1e90ff;
+    -fx-background-color: #fff3e0;
+    -fx-text-fill: #ff9800;
 }
 
 .sidebar-item.selected {
-    -fx-background-color: #e6f0ff;
-    -fx-text-fill: #1e90ff;
+    -fx-background-color: #fff3e0;
+    -fx-text-fill: #ff9800;
     -fx-border-width: 0px 5px 0px 0px;
-    -fx-border-color: transparent #1e90ff transparent transparent;
+    -fx-border-color: transparent #ff9800 transparent transparent;
 }
 
 .sidebar-title {

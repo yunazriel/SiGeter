@@ -35,7 +35,7 @@
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@assets/iconSidebar2.png" />
+                                    <Image url="@assets/iconSidebarHome.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -59,7 +59,7 @@
                            <graphic>    
                               <ImageView fitHeight="49.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" styleClass="sidebar-button">
                                  <image>
-                                    <Image url="@assets/iconSidebar1.png" />
+                                    <Image url="@assets/iconSidebarGempaGlobal.png" />
                                  </image>
                               </ImageView>
                            </graphic>
