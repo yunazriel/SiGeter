@@ -103,39 +103,7 @@ public class GempaGlobalController implements Initializable {
             System.out.println("Harap pilih tanggal mulai dan tanggal berakhir.");
         }
     }
-    
-    private void tampilkanPeta(DetailGempa gempa) {
-        try {
-            String kordinat = gempa.getCordinate();
-            String[] parts = kordinat.split(",\\s*");
-            double latitude = Double.parseDouble(parts[0]);
-            double longitude = Double.parseDouble(parts[1]);
-            String html = "<html>" +
-            "<head>" +
-            "  <meta charset='utf-8'>" +
-            "  <title>Peta</title>" +
-            "  <style>" +
-            "    #map { height: 100vh; width: 100vw; }" +
-            "    html, body { margin: 0; padding: 0; }" +
-            "  </style>" +
-            "  <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css'/>" +
-            "  <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js'></script>" +
-            "</head>" +
-            "<body>" +
-            "  <div id='map'></div>" +
-            "  <script>" +
-            "    var map = L.map('map').setView([" + longitude +  ", " + latitude +  "], 4);" +
-            "    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);" +
-            "    L.marker([" + longitude +  "," + latitude +  "]).addTo(map).bindPopup('Lokasi Gempa').openPopup();" +
-            "  </script>" +
-            "</body>" +
-            "</html>";
-            usgsImg.getEngine().loadContent(html);
-        } catch (Exception e) {
-            System.out.println("Gagal memuat gambar : " + e.getMessage());
-        }
-    }
-    
+        
     private void tampilkanDataGempa(String sTime, String eTime) {
         List<DetailGempa> gempaList = getData(sTime, eTime);
 
@@ -185,9 +153,27 @@ public class GempaGlobalController implements Initializable {
                     });
                     
                     btnViewMap.getStyleClass().add("btnViewMaps");
+                    final boolean[] isSingleView = {true};
+                    final DetailGempa[] lastSelected = {null};
+                    
                     btnViewMap.setOnAction(e -> {
                         DetailGempa gempa = getTableView().getItems().get(getIndex());
                         tampilkanPeta(gempa);
+
+                        if (gempa != null) {
+                            if (gempa != lastSelected[0]) {
+                                isSingleView[0] = true;
+                            }
+
+                            if (isSingleView[0]) {
+                                tampilkanPeta(gempa);
+                            } else {
+                                tampilkanSemuaPeta(tableGempa.getItems());
+                            }
+
+                            isSingleView[0] = !isSingleView[0];
+                            lastSelected[0] = gempa; 
+                       }
                     });
                 }
 
@@ -197,28 +183,6 @@ public class GempaGlobalController implements Initializable {
                     setGraphic(empty ? null : hbox);
                 }
             });
-            
-//            final boolean[] isSingleView = {true};
-//            final DetailGempa[] lastSelected = {null};
-//
-//            tableGempa.setOnMouseClicked(event -> {
-//                if (event.getClickCount() == 1) {
-//                    DetailGempa selected = tableGempa.getSelectionModel().getSelectedItem();
-//                    if (selected != null) {
-//                        if (selected != lastSelected[0]) {
-//                            isSingleView[0] = true;
-//                        }
-//
-//                        if (isSingleView[0]) {
-//                            tampilkanPeta(selected);
-//                        } else {
-//                            tampilkanSemuaPeta(tableGempa.getItems());
-//                        }
-//
-//                        isSingleView[0] = !isSingleView[0];
-//                        lastSelected[0] = selected;                    }
-//                }
-//            });
 
         } else {
             tableGempa.getItems().clear();
@@ -227,6 +191,38 @@ public class GempaGlobalController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Data gempa tidak tersedia.");
             alert.showAndWait();
+        }
+    }
+    
+    private void tampilkanPeta(DetailGempa gempa) {
+        try {
+            String kordinat = gempa.getCordinate();
+            String[] parts = kordinat.split(",\\s*");
+            double latitude = Double.parseDouble(parts[0]);
+            double longitude = Double.parseDouble(parts[1]);
+            String html = "<html>" +
+            "<head>" +
+            "  <meta charset='utf-8'>" +
+            "  <title>Peta</title>" +
+            "  <style>" +
+            "    #map { height: 100vh; width: 100vw; }" +
+            "    html, body { margin: 0; padding: 0; }" +
+            "  </style>" +
+            "  <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.3/dist/leaflet.css'/>" +
+            "  <script src='https://unpkg.com/leaflet@1.9.3/dist/leaflet.js'></script>" +
+            "</head>" +
+            "<body>" +
+            "  <div id='map'></div>" +
+            "  <script>" +
+            "    var map = L.map('map').setView([" + longitude +  ", " + latitude +  "], 4);" +
+            "    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);" +
+            "    L.marker([" + longitude +  "," + latitude +  "]).addTo(map).bindPopup('Lokasi Gempa').openPopup();" +
+            "  </script>" +
+            "</body>" +
+            "</html>";
+            usgsImg.getEngine().loadContent(html);
+        } catch (Exception e) {
+            System.out.println("Gagal memuat gambar : " + e.getMessage());
         }
     }
     
