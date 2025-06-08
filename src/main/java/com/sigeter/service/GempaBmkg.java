@@ -23,10 +23,6 @@ public class GempaBmkg {
 
             JSONObject root = new JSONObject(json);
             JSONObject detailGempa = root.getJSONObject("Infogempa").getJSONObject("gempa");
-            
-//            String lintang = detailGempa.getString("Lintang");
-//            String bujur = detailGempa.getString("Bujur");
-//            String cordinate = lintang + " - " + bujur;
             String potensi = detailGempa.getString("Potensi").contains("dirasakan") ? "Gempa Dirasakan" : "Berpotensi Tsunami" ;
             
             return new DetailGempa(

@@ -51,7 +51,6 @@ public class GempaGlobalController implements Initializable {
     public List<DetailGempa> getData(String sTime, String eTime) {
         try {
             List<DetailGempa> daftarGempa = service.fetchDataGempa(apiUrlByDate(sTime, eTime));
-//            System.out.println("[Data Gempa Global]: " + daftarGempa.size());
             return daftarGempa;
         } catch (Exception e) {
             e.printStackTrace();
@@ -113,7 +112,6 @@ public class GempaGlobalController implements Initializable {
             tableGempa.getItems().clear();
             tableGempa.getItems().addAll(gempaList);
             tableGempa.setSelectionModel(null);
-
 
             colAction.setCellFactory(col -> new TableCell<>() {
                 private final Button btnViewMap = new Button("View Map");
@@ -303,7 +301,7 @@ public class GempaGlobalController implements Initializable {
         colPot.setCellValueFactory(new PropertyValueFactory<>("potensi"));
         colKor.setCellValueFactory(new PropertyValueFactory<>("cordinate"));
 
-        // Cegah drag and drop urutan kolom
+        // drag and drop urutan kolom
         tableGempa.getColumns().forEach(col -> col.setReorderable(false));
 
         tampilkanDataGempa(startTime, endTime);

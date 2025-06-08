@@ -167,8 +167,6 @@ public class GempaLocalController implements Initializable {
         imageLayout.setAlignment(Pos.CENTER);
         imageView.setFitWidth(550);
         imageView.setFitHeight(550);
-//        imageView.fitWidthProperty().bind(imageLayout.widthProperty());
-//        imageView.fitHeightProperty().bind(imageLayout.heightProperty());
         
         Scene modalScene = new Scene(imageLayout);
         modalStage.setScene(modalScene);
@@ -177,7 +175,6 @@ public class GempaLocalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        System.out.println("[API BMKG]: " + getData());
         tampilkanDataGempa();
     }    
 }

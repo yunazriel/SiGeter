@@ -12,7 +12,6 @@
     -fx-background-color: #ffffff;
     -fx-border-color: #dddddd;
     -fx-border-radius: 8;
-    /*-fx-padding: 10;*/
     -fx-table-cell-border-color: transparent;
     -fx-font-size: 13px;
     -fx-text-fill: #333333;
@@ -72,7 +71,6 @@
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-background-radius: 10;
-    /*-fx-background-color: #FFC107;*/
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
     -fx-transition: all 0.3s ease;
 }
@@ -111,7 +109,6 @@
     -fx-text-fill: white;
     -fx-background-radius: 10;
     -fx-background-color: #28a745;
-    /*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);*/
     -fx-transition: all 0.3s ease;
 }
 
@@ -132,7 +129,6 @@
 }
 
 .choice-box .label {
-    /*-fx-text-fill: #343a40;*/
     -fx-text-fill: #228DFF;
 }
 
@@ -149,18 +145,15 @@
 }
 
 .choice-box .menu-item > .left-container > .check {
-    -fx-background-color: #007bff; /* Warna centang default (biru cerah) */
-    /* Atau warna lain yang Anda inginkan saat tidak di-hover/selected */
+    -fx-background-color: #007bff;
 }
 
-/* Warna centang saat item di-hover (focused) */
 .choice-box .menu-item:focused > .left-container > .check {
-    -fx-background-color: #007bff; /* Biru cerah saat di-hover */
+    -fx-background-color: #007bff;
 }
 
-/* Warna centang saat item dipilih (selected) */
 .choice-box .menu-item:selected > .left-container > .check {
-    -fx-background-color: #007bff; /* Biru cerah saat dipilih */
+    -fx-background-color: #007bff;
 }
 
 .choice-box .menu-item:focused {

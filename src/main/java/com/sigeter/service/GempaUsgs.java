@@ -48,7 +48,6 @@ public class GempaUsgs {
             JSONObject root = new JSONObject(json);
             JSONArray features = root.getJSONArray("features");
 
-//            int jumlahData = Math.min(10, features.length()); // limit data
             int jumlahData = features.length();
             for (int i = 0; i < jumlahData; i++) {
                 JSONObject feature = features.getJSONObject(i);

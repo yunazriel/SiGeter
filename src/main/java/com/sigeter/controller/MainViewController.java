@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,12 +33,6 @@ public class MainViewController implements Initializable {
         }
         
         onHomeClicked();
-        
-//        Platform.runLater(() -> {
-//            double widht = mainPane.getWidth();
-//            double height = mainPane.getHeight();
-//            System.out.print("Ukuran Pane: " + widht + " X " + height); 
-//        });
     } 
     
     private void setActiveSidebarButton(Button activeButton) {
