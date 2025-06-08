@@ -36,7 +36,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-
 import java.io.FileOutputStream;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -44,7 +43,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class CatatanController implements Initializable {
-    
     @FXML private TableView<DetailGempa> tableCatatan;
     @FXML private TableColumn<DetailGempa, String> colTgl;
     @FXML private TableColumn<DetailGempa, String> colJam;
@@ -55,7 +53,6 @@ public class CatatanController implements Initializable {
     @FXML private TableColumn<DetailGempa, String> colCor;
     @FXML private TableColumn<DetailGempa, Void> colAction;
     @FXML private ChoiceBox<String> choiceExportFormat;
-
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,7 +60,7 @@ public class CatatanController implements Initializable {
         choiceExportFormat.setItems(exportOptions);
         choiceExportFormat.getSelectionModel().selectFirst();
         
-        tableCatatan.setEditable(true);
+        tableCatatan.getColumns().forEach(column -> column.setReorderable(false));
         tableCatatan.setSelectionModel(null);
         
         // Kolom data

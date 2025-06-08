@@ -40,7 +40,6 @@
 .filterContent-button {
     -fx-background-color: #4a90e2;
     -fx-text-fill: white;
-    /*-fx-font-size: 14px;*/
     -fx-padding: 8 16;
     -fx-background-radius: 8;
     -fx-cursor: hand;
@@ -114,24 +113,6 @@
     -fx-text-fill: #999999;
     -fx-font-style: italic;
 }
-
-/*.btn-flat {
-    -fx-background-color: transparent;
-    -fx-text-fill: #2196F3;
-    -fx-font-weight: bold;
-    -fx-border-color: #2196F3;
-    -fx-border-width: 1.5;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-    -fx-padding: 5 10;
-    -fx-cursor: hand;
-    -fx-transition: all 0.3s ease;
-}
-
-.btn-flat:hover {
-    -fx-background-color: #2196F3;
-    -fx-text-fill: white;
-}*/
 
 .btnCatatan-add {
     -fx-background-color: #3cd070;

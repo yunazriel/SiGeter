@@ -16,18 +16,18 @@
         <URL value="@style/catatan.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="14.0" layoutY="5.0" prefHeight="444.0" prefWidth="1315.0" styleClass="container-contentCatatan">
+      <Pane layoutX="14.0" layoutY="5.0" prefHeight="444.0" prefWidth="1315.0" styleClass="container-contentCatatan" AnchorPane.topAnchor="0.0">
          <children>
             <TableView fx:id="tableCatatan" layoutX="11.0" layoutY="16.0" prefHeight="409.0" prefWidth="1291.0">
                <columns>
-                  <TableColumn fx:id="colTgl" prefWidth="114.39997291564941" resizable="false" text="Tanggal" />
+                  <TableColumn fx:id="colTgl" editable="false" prefWidth="114.39997291564941" resizable="false" text="Tanggal" />
                   <TableColumn fx:id="colJam" editable="false" minWidth="0.0" prefWidth="110.93336486816406" resizable="false" text="Jam" />
-                  <TableColumn fx:id="colMag" prefWidth="108.26667785644531" resizable="false" text="Magnitude" />
-                  <TableColumn fx:id="colDlm" prefWidth="122.66665649414062" resizable="false" text="Kedalaman" />
-                  <TableColumn fx:id="colWil" minWidth="0.0" prefWidth="311.9999694824219" resizable="false" text="Wilayah" />
-                  <TableColumn fx:id="colPot" minWidth="0.0" prefWidth="168.79998779296875" resizable="false" text="Potensi" />
-                  <TableColumn fx:id="colCor" minWidth="0.0" prefWidth="131.46661376953125" resizable="false" text="Koordinat" />
-                  <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="205.8665771484375" resizable="false" text="action" />
+                  <TableColumn fx:id="colMag" editable="false" prefWidth="108.26667785644531" resizable="false" text="Magnitude" />
+                  <TableColumn fx:id="colDlm" editable="false" prefWidth="122.66665649414062" resizable="false" text="Kedalaman" />
+                  <TableColumn fx:id="colWil" editable="false" minWidth="0.0" prefWidth="311.9999694824219" resizable="false" text="Wilayah" />
+                  <TableColumn fx:id="colPot" editable="false" minWidth="0.0" prefWidth="168.79998779296875" resizable="false" text="Potensi" />
+                  <TableColumn fx:id="colCor" editable="false" minWidth="0.0" prefWidth="131.46661376953125" resizable="false" text="Koordinat" />
+                  <TableColumn fx:id="colAction" editable="false" minWidth="0.0" prefWidth="205.8665771484375" resizable="false" text="action" />
                </columns>
             </TableView>
          </children>

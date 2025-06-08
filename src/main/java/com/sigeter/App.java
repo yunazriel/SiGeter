@@ -7,9 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
-import javafx.stage.Screen;
 
 public class App extends Application {
     private static Scene scene;
@@ -18,14 +16,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         Parent root = loadFXML("MainView");
         scene = new Scene(root);
-        
-//        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-//        double screenWidth = screenBounds.getWidth();
-//        double screenHeight = screenBounds.getHeight();
-//        
-//        System.out.println("Lebar layar: " + screenWidth);
-//        System.out.println("Tinggi layar: " + screenHeight);
-
+       
         try {
             URL iconURL = getClass().getResource("/com/sigeter/assets/logoSigeter.png");
             if (iconURL != null) {
