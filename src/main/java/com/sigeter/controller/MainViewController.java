@@ -13,18 +13,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
 public class MainViewController implements Initializable {
-    
-    @FXML private Button btnGempaTerkini;
+    @FXML private Button btnGempaLocal;
     @FXML private Button btnGempaGlobal;
     @FXML private Button btnCatatan;
     @FXML private Button btnHome;
     @FXML private StackPane mainPane;
-    
-    private List<Button> sidebarButtons;
+    @FXML private List<Button> sidebarButtons;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        sidebarButtons = Arrays.asList(btnHome, btnGempaTerkini, btnGempaGlobal, btnCatatan);
+        sidebarButtons = Arrays.asList(btnHome, btnGempaLocal, btnGempaGlobal, btnCatatan);
         
         for (Button btn : sidebarButtons) {
             if (!btn.getStyleClass().contains("sidebar-item")) {
@@ -56,14 +54,15 @@ public class MainViewController implements Initializable {
         }
     }
     
-    @FXML void onHomeClicked() {
+    @FXML
+    void onHomeClicked() {
         setActiveSidebarButton(btnHome);
         loadUI("/com/sigeter/Home.fxml");
     }
     
     @FXML
-    private void onGempaTerkiniClicked() {
-        setActiveSidebarButton(btnGempaTerkini);
+    private void onGempaLocalClicked() {
+        setActiveSidebarButton(btnGempaLocal);
         loadUI("/com/sigeter/GempaLocal.fxml");
     }
     

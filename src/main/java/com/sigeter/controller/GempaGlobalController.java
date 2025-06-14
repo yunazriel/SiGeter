@@ -27,8 +27,7 @@ public class GempaGlobalController implements Initializable {
     private final GempaUsgs service;
     
     @FXML private WebView usgsImg;
-    @FXML private DatePicker sTime, eTime;
-    
+    @FXML private DatePicker sTime, eTime;   
     @FXML private TableView<DetailGempa> tableGempa;
     @FXML private TableColumn<DetailGempa, String> colTanggal;
     @FXML private TableColumn<DetailGempa, String> colJam;
@@ -120,7 +119,7 @@ public class GempaGlobalController implements Initializable {
 
                 {
                     hbox.setAlignment(Pos.CENTER);
-                    
+                     
                     btnAddCatatan.getStyleClass().add("btnCatatan-add");
                     btnAddCatatan.setOnAction(e -> {
                         DetailGempa gempa = getTableView().getItems().get(getIndex());

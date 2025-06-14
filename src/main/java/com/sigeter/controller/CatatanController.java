@@ -110,7 +110,7 @@ public class CatatanController implements Initializable {
             }
         });
 
-        // Tampilkan data
+        // menampilkan data
         ObservableList<DetailGempa> catatanList = DataShare.catatan;
         tableCatatan.setItems(catatanList);
     }

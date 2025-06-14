@@ -23,7 +23,6 @@ import javafx.util.Duration;
 
 public class GempaLocalController implements Initializable {
     private GempaBmkg service;
-    private static final String url = "https://data.bmkg.go.id/DataMKG/TEWS/";
     
     @FXML private Label date,mag,dlm,wil,pot,cor,map;
     @FXML private WebView mapsBmkg;
@@ -101,9 +100,9 @@ public class GempaLocalController implements Initializable {
                 "<body>" +
                 "  <div id='map'></div>" +
                 "  <script>" +
-                "    var map = L.map('map').setView([" + latitude + ", " + longitude + "], 6);" + // Leaflet expect (latitude, longitude)
+                "    var map = L.map('map').setView([" + latitude + ", " + longitude + "], 6);" +
                 "    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);" +
-                "    L.marker([" + latitude + "," + longitude + "]).addTo(map).bindPopup('Lokasi Gempa').openPopup();" + // Leaflet expect (latitude, longitude)
+                "    L.marker([" + latitude + "," + longitude + "]).addTo(map).bindPopup('Lokasi Gempa').openPopup();" +
                 "  </script>" +
                 "</body>" +
                 "</html>";
@@ -153,7 +152,6 @@ public class GempaLocalController implements Initializable {
         String baseUrlImageBmkg = "https://data.bmkg.go.id/DataMKG/TEWS/";
         
         Stage modalStage = new Stage();
-        Stage ownerStage = (Stage) mapsBmkg.getScene().getWindow();
         modalStage.setTitle("Detail Map");
         modalStage.setResizable(true);
         

@@ -40,7 +40,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="btnGempaTerkini" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#onGempaTerkiniClicked" prefHeight="46.0" prefWidth="182.0" styleClass="sidebar-item" text="Gempa Lokal" textFill="#65676d">
+                        <Button fx:id="btnGempaLocal" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" onAction="#onGempaLocalClicked" prefHeight="46.0" prefWidth="182.0" styleClass="sidebar-item" text="Gempa Lokal" textFill="#65676d">
                            <font>
                               <Font name="Comic Sans MS Bold" size="16.0" />
                            </font>

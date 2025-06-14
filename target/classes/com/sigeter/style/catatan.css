@@ -98,6 +98,7 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 3, 0, 0, 1);
     -fx-transition: all 0.3s ease;
 }
+
 .btnCatatan-delete:hover {
     -fx-background-color: #da3329;
 }
