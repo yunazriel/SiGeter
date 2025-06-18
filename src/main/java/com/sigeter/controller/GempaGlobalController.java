@@ -281,7 +281,6 @@ public class GempaGlobalController implements Initializable {
         } catch (Exception e) {
             System.out.println("Gagal memuat peta: " + e.getMessage());
         }
-
     }
     
     @Override

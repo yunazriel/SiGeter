@@ -37,7 +37,7 @@
 
 .btnModalCatatan-primary:hover {
     -fx-background-color: #0056b3;
-     -fx-opacity: 0.9;
+    -fx-opacity: 0.9;
     -fx-scale-x: 1.02;
     -fx-scale-y: 1.02;
 }
