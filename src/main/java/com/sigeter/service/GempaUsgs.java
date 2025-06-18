@@ -16,7 +16,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class GempaUsgs {
-
     public static String getFormattedDate(long timestamp) {
         Instant instant = Instant.ofEpochMilli(timestamp);
         ZonedDateTime dateTime = instant.atZone(ZoneOffset.UTC);
