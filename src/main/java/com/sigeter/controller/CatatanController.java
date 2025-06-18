@@ -133,7 +133,6 @@ public class CatatanController implements Initializable {
             System.err.println("Gagal mem-parse tanggal '" + gempa.getTanggal() + "': " + e.getMessage());
         }
         
-//        TextField tfTgl = new TextField(gempa.getTanggal());
         TextField tfJam = new TextField(gempa.getJam());
         TextField tfMag = new TextField(gempa.getMagnitude());
         TextField tfDlm = new TextField(gempa.getKedalaman());
