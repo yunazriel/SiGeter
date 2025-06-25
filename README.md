@@ -33,16 +33,6 @@
 
 ---
 
-## 📸 Cuplikan Aplikasi (Optional)
-
-_Tambahkan tangkapan layar aplikasi di sini jika tersedia._
-
-```
-![Tampilan Utama](./screenshots/main-ui.png)
-```
-
----
-
 ## 👨‍💻 Cara Menjalankan Aplikasi
 
 1. Clone repository:
@@ -59,9 +49,9 @@ _Tambahkan tangkapan layar aplikasi di sini jika tersedia._
 
 Proyek ini dikerjakan secara kolaboratif oleh:
 
-- **Muhammad Yunazriel M** - _Pengembang Backend & Integrasi UI/UX_
-- **Farih Nailul A'la** - _Pengembang Backend & Integrasi API_   
-- **Ahmad Andrian Fitzal R** -  _UI/UX Design, Dokumentasi Proyek & Kontribusi Ide_
+- [**@yunazriel**](https://github.com/Yunazriel) – _Pengembang Backend & Integrasi UI/UX_  
+- [**@farihna**](https://github.com/Farihna) – _Pengembang Backend & Integrasi API_  
+- [**@ahmadandrianfr**](https://github.com/Matchacookie22) – _UI/UX Design, Dokumentasi Proyek & Kontribusi Ide_
 ---
 
 ## 📄 Lisensi
