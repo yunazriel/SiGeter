@@ -6,19 +6,19 @@
 
 ## 🌍 Fitur Utama
 
-- 🔍 **Informasi Gempa Lokal** 
+- **Informasi Gempa Lokal** 
   Mengambil data langsung dari BMKG (Badan Meteorologi, Klimatologi, dan Geofisika) untuk menampilkan gempa yang terjadi di wilayah Indonesia.
 
-- 🌐 **Informasi Gempa Global**
+- **Informasi Gempa Global**
   Menyediakan data gempa global melalui integrasi dengan USGS (United States Geological Survey).
 
-- 🗺️ **Peta Interaktif**
+- **Peta Interaktif**
   Menampilkan lokasi gempa secara visual di atas peta untuk memudahkan pemahaman letak geografis gempa.
 
-- 📝 **Catatan Pengguna**
+- **Catatan Pengguna**
   Pengguna dapat mencatat informasi penting terkait gempa (misalnya lokasi, kekuatan, dampak), lalu menyimpan dan mengunduh catatan tersebut ke dalam file lokal untuk dokumentasi pribadi atau keperluan analisis.
 
-- 📊 **Antarmuka Desktop yang User-Friendly**
+- **Antarmuka Desktop yang User-Friendly**
   Dibangun dengan teknologi desktop untuk memberikan pengalaman pengguna yang sederhana dan intuitif.
 
 ---
