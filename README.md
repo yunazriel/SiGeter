@@ -25,11 +25,11 @@
 
 ## ⚙️ Teknologi yang Digunakan
 
-- Java (JavaFX) – Sebagai membangun antarmuka desktop aplikasi.
-- Leaflet.js – Sebagai menampilkan peta interaktif dalam aplikasi.
+- Java (JavaFX) – Membangun antarmuka desktop aplikasi.
+- Leaflet.js – Menampilkan peta interaktif dalam aplikasi.
 - OpenStreetMap – Sebagai sumber data peta yang digunakan oleh Leaflet.
-- API BMKG – Sebagai mendapatkan data gempa bumi lokal secara real-time.
-- API USGS – Sebagai mendapatkan data gempa global secara real-time.
+- API BMKG – Mendapatkan data gempa bumi lokal secara real-time.
+- API USGS – Mendapatkan data gempa global secara real-time.
 
 ---
 
@@ -37,7 +37,7 @@
 
 1. Clone repository:
    ```bash
-   git clone https://github.com/username/sigeter.git
+   https://github.com/yunazriel/SiGeter.git
    ```
 2. Buka project di IDE (misalnya NetBeans atau IntelliJ).
 3. Jalankan file utama (App.java).
